@@ -1,3 +1,21 @@
+// ============================================================
+// CONFIG
+// ============================================================
+// Paste your deployed Google Apps Script Web App URL here to
+// enable automatic recording of results to a Google Sheet.
+// Leave as "" to run the test without recording (results still
+// show on-screen and can be reviewed by the student).
+// See README.md for setup instructions.
+const GOOGLE_SCRIPT_URL = ""; // e.g. "https://script.google.com/macros/s/XXXXX/exec"
+
+// Paste the URL of your Listening section test here. Shown as a
+// "Continue to Listening Section" button on the final screen.
+// Leave as "" to hide the button.
+const LISTENING_SECTION_URL = "";
+
+// ============================================================
+// STATE
+// ============================================================
 const state = {
   studentName: "",
   studentEmail: "",
@@ -313,7 +331,14 @@ function renderStep() {
 // ============================================================
 function renderNavBar() {
   const total = state.steps.length;
+  const isFirst = state.stepIndex === 0;
   const isLast = state.stepIndex === total - 1;
+
+  const backBtn = el("button", {
+    class: "navBtn secondary",
+    disabled: isFirst ? "disabled" : null,
+    onclick: () => { state.stepIndex -= 1; renderStep(); }
+  }, "Back");
 
   const nextBtn = el("button", {
     class: "navBtn",
@@ -328,7 +353,8 @@ function renderNavBar() {
   }, isLast ? "Submit Module" : "Next");
 
   return el("div", { class: "navBar" }, [
-    el("div", { class: "progress" }, `Step ${state.stepIndex + 1} of ${total} — you cannot return to a previous step`),
+    backBtn,
+    el("div", { class: "progress" }, `Step ${state.stepIndex + 1} of ${total}`),
     nextBtn
   ]);
 }
