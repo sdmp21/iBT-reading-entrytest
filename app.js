@@ -6,12 +6,12 @@
 // Leave as "" to run the test without recording (results still
 // show on-screen and can be reviewed by the student).
 // See README.md for setup instructions.
-const GOOGLE_SCRIPT_URL = ""; // e.g. "https://script.google.com/macros/s/XXXXX/exec"
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbymrILJu6KGgecWpSGvw5jDDPq67JfAfaZ99nJ6c0kKUtII284kdCY-DHOkSUG5o7iiuA/exec"; // e.g. "https://script.google.com/macros/s/XXXXX/exec"
 
 // Paste the URL of your Listening section test here. Shown as a
 // "Continue to Listening Section" button on the final screen.
 // Leave as "" to hide the button.
-const LISTENING_SECTION_URL = "";
+const LISTENING_SECTION_URL = "https://www.classmarker.com/online-test/start/?quiz=9vb68cab72ba7b44";
 
 // ============================================================
 // STATE
